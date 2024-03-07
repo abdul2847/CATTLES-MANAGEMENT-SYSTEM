@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./layouts/headers') %>
+  </head>
+
+  <body>
+    <div class="body_wrapper">
+      <%- include('./layouts/sidebar') %>
+
+      <div class="main-wrapper">
+        <%- include('./layouts/top_nav') %>
+
+        <div class="container_wrapper gap-30 col center width-100">
+          <div class="alert welcome_alert_message">
+            <%- include('./messages') %>
+          </div>
+          <div
+            class="row flex-wrap center width-100 pd-inl-15 gap-20 space-between"
+          >
+            <div
+              class="quick_shortcut row shadow_ligth width-25 rounded-5 hidden_overflow card height-100px"
+            >
+              <div class="shortcut_logo danger width-30 center">
+                <i class="fas fa-cow" style="font-size: 50px"></i>
+              </div>
+              <div class="shortcut_content col gap-20 pd-10">
+                <h2>Total Cattles</h2>
+                <h3><%= totalCattles %></h3>
+              </div>
+            </div>
+            <div
+              class="quick_shortcut row shadow_ligth width-25 rounded-5 hidden_overflow card height-100px"
+            >
+              <div class="shortcut_logo prim_bg_light width-30 center">
+                <i class="fas fa-user-tie" style="font-size: 50px"></i>
+              </div>
+              <div class="shortcut_content col gap-10 pd-10">
+                <h2>Total Owners</h2>
+                <h3><%= totalOwners %></h3>
+              </div>
+            </div>
+            <div
+              class="quick_shortcut row shadow_ligth width-25 rounded-5 hidden_overflow card height-100px"
+            >
+              <div class="shortcut_logo sucess width-30 center">
+                <i class="fas fa-user-cog" style="font-size: 50px"></i>
+              </div>
+              <div class="shortcut_content col gap-10 pd-10">
+                <h2>Total Managers</h2>
+                <h3><%= totalManager %></h3>
+              </div>
+            </div>
+            <div
+              class="quick_shortcut row shadow_ligth width-25 rounded-5 hidden_overflow card height-100px"
+            >
+              <div class="shortcut_logo danger width-30 center">
+                <i class="fas fa-user" style="font-size: 50px"></i>
+              </div>
+              <div class="shortcut_content col gap-10 pd-10">
+                <h2>Visited Guest</h2>
+                <h3><%= totalGuest %></h3>
+              </div>
+            </div>
+          </div>
+          <div class="row width-100 rounded-10 pd-inl-15 flex-wrap gap-30">
+            <div class="calender card shadow_ligth width-60 rounded-10">
+              <div class="headline pd-10 width-100">
+                <h4>Daily Calender</h4>
+              </div>
+              <div class="calender_condent pd-20">
+                <div id="calendar" class="height-60"></div>
+              </div>
+            </div>
+            <div class="chart card shadow_ligth width-35 rounded-10">
+              <div class="headline pd-10 width-100">
+                <h4>Daily Chart</h4>
+              </div>
+              <div class="chart_content pd-10 height-60">
+                <canvas id="myChart" class="width-60"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="width-100 pd-inl-15 rounded-10">
+            <div
+              class="card height-60 width-100 rounded-10 pd-30 shadow_dark"
+            ></div>
+          </div>
+
+          <%- include('./layouts/footer') %>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/sidebar.js"></script>
+
+    <script>
+      const totalManager = <%= totalManager %>;
+      const totalOwners = <%= totalOwners %>;
+      const totalGuest = <%= totalGuest %>;
+      const data = {
+          labels: ["Managers", "Owners", "Guest"],
+          datasets: [
+              {
+                  label: "Total",
+                  data: [totalManager,totalOwners, totalGuest, ], // Replace with your data
+                  backgroundColor: [
+                      "rgba(75, 192, 192, 0.6)", // Turquoise for Managers
+                      "rgba(255, 99, 132, 0.6)", // Red for Owners
+                      "rgba(25, 1999, 123, 0.6)", // Green for Guest
+                  ],
+                  borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)", ],
+                  borderWidth: 0.5,
+
+              },
+
+          ],
+      };
+
+      const config = {
+          type: "bar",
+          data: data,
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true,
+
+                  },
+              },
+              maintainAspectRatio: false, // Set to false to allow the chart to fill its container
+          },
+      };
+
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, config);
+
+      // Apply some basic styling to the chart
+      myChart.options.plugins.legend.labels.boxWidth = 0;
+      myChart.options.plugins.tooltip.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      myChart.update();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth", // Set to monthly view
+          headerToolbar: {
+            left: "title",
+            center: "",
+            right: "prev,next today",
+          },
+          events: [],
+        });
+        calendar.render();
+      });
+    </script>
+  </body>
+</html>

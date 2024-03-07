@@ -1,0 +1,31 @@
+<div class="top-nav">
+    <div class="top-nav-logo center">
+        <p class="hidden dis_menu"><i class="fa-solid fa-bars" ></i></p>
+        <img src="/images/logo.png" alt="" class="rounded-10 logo_img">
+    </div>
+    <div class="search_profile row center gap-20">
+        <form action="/search" method="GET">
+            <div class="search row">
+                <input type="text" name="query" placeholder="Search Owner">
+                <button class="pd-inl-10">Search</button>
+            </div>
+        </form>
+        <div class="profile">
+            <div class="profile_img">
+
+                <img src="/images/profile.jpg" alt="">
+            </div>
+            <div class="profile_content col center gap-10 hidden rounded-10 ">
+                <a href="/manager/user/profile" class="profile rounded-5" id="profile">Profile</a>
+                <div class="row gap-10 pd-10 width-100 space-between ">
+                    <p>Theme</p>
+                    <div class="switch card rounded-20 " id="theme-toggle">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <a href="/logout" class="logout rounded-5">Logout</a>
+
+            </div>
+        </div>
+    </div>
+</div>

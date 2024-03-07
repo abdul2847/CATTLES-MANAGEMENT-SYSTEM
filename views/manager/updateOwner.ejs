@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+     <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+
+            <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+
+                <%- include('./layouts/top_nav') %>
+    
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="alert welcome_alert_message">
+                    <%- include('./messages') %>
+                  </div>
+                <div class="card shadow_dark  form-group-card width-100 rounded-10 pd-30 ">
+                    <form action="/manager/update/owner/<%= owner.id  %>" method="post" enctype="multipart/form-data">
+                        <div class="card width-100 col gap-20 ">
+                           
+                            <h2 class="center" >UPDATE OWNERS</h2>
+                            <br>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="name">Full Name : </label>
+                                    <input type="text" name="name" id="" class=" pd-15 rounded-5 input-border"
+                                                                        placeholder="Full Name" value="<%= owner.name  %>" >
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="email">Email : </label>
+                                    <input type="text" name="email" id="" 
+                                    class=" pd-15 rounded-5 input-border" 
+                                    placeholder="Email"
+                                    <% if (owner.email) { %>
+                                     value = "<%= owner.email  %>"
+                                    <% } %>>
+                                </div>
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="location">Current Location : </label>
+                                    <input type="text" class="pd-15 rounded-5 input-border" name="location" placeholder="Location" value="<%= owner.location  %>">
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="house_Address">Current House Address :</label>
+                                    <input type="text" name="house_Address" id="" class="pd-15 rounded-5 input-border" placeholder="House Address" value="<%= owner.House_No  %>">
+                                </div>
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10  ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="phone">Contact : </label>
+                                    <input type="text" name="phone" id="" class=" pd-15 rounded-5 input-border"
+                                        placeholder="Contact eg. 02 xxxxxxxx / 05 xxxxxxxx" value="<%= owner.phone  %>">
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="" class=" pd-15 rounded-5 input-border" autocomplete="false"  placeholder="Password" minlength="6" maxlength="16" >
+                                    <p style="font-size: 10px; font-weight: 100;">Minimum characters: 6 </p>
+                                </div>
+                            </div>
+                            <div class="form-group row flex-wrap gap-10">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="gender">Gender :</label>
+                                    <select name="gender" class="pd-15 rounded-5 input-border">
+                                        <% if (owner.gender === 'male') { %>
+                                            <option value="<%= owner.gender  %>">Male</option>
+                                            <option value="female">Female</option>
+
+                                        <% }  else if (owner.gender === 'female') { %>
+                                            <option value="female">Female</option>
+                                             <option value="male">Male</option>
+
+                                        <% } else { %>
+                                         <option selected disabled>select gender</option>
+                                         <option value="male">Male</option>
+                                         <option value="female">Female</option>
+                                        <% }%>
+                                    </select>
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="image">Upload Profile</label>
+                                    <input type="file" name="image" class=" pd-15 rounded-5 input-border" value="<%= owner.image  %>">
+                                </div>
+                            </div>
+                            <div class="form-group row gap-10 flex-wrap center">
+                                <button class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border">Submit</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+        <script src="/js/sidebar.js"></script>
+
+
+</body>
+
+</html>

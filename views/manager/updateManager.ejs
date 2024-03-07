@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+
+    <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+
+            <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+
+                <%- include('./layouts/top_nav') %>
+    
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="alert welcome_alert_message">
+                    <%- include('./messages') %>
+                  </div>
+                <div class="card form-group-card shadow_dark   width-100 rounded-10 pd-30 ">
+                    <form action="/manager/update/manager/<%= manager._id  %>" method="post" enctype="multipart/form-data">
+                        <div class="card width-100 col gap-20 ">
+                            <h2 class="center letter-spc-2">UPDATE MANAGER</h2>
+                            <br>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="name">Full Name : </label>
+                                    <input type="text" name="name"  class=" pd-15 rounded-5 input-border"
+                                        placeholder="Full Name" value="<%= manager.name %>">
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="Email">Email : </label>
+                                    <input type="text" name="email"  class=" pd-15 rounded-5 input-border" placeholder="Email" 
+                                    <% if (manager.email) { %>
+                                    value=" <%= manager.email %>"
+                                    <% } %> >
+                                </div>
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10 ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="location">Location :</label>
+                                    <input type="text" name="location"  class=" pd-15 rounded-5 input-border"
+                                        placeholder="Location" value="<%= manager.location  %>">
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="house_Address">Current House Address :</label>
+                                    <input type="text" name="house_Address"  class=" pd-15 rounded-5 input-border" placeholder="House Address" value="<%= manager.house_Address  %>">
+                                </div>
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10  ">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="phone">Phone :</label>
+                                    <input type="text" name="phone"  class=" pd-15 rounded-5 input-border"
+                                        placeholder="Contact" value="<%= manager.phone  %>">
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="password">Password : </label>
+                                    <input type="password" name="password"  class=" pd-15 rounded-5 input-border" disabled placeholder="Password" minlength="6" maxlength="16" >
+                                    <p style="font-size: 10px; font-weight: 100;">Minimum character: 6</p>
+                                </div>
+                            </div>
+                            <div class="form-group row flex-wrap gap-10">
+                                <div class="group_inputs gap-5 col">
+                                    <label for="gender">Gender :</label>
+                                    <select name="gender" class="pd-15 rounded-5 input-border">
+                                        <% if (manager.gender === 'male') { %>
+                                            <option value="<%= manager.gender  %>">Male</option>
+                                            <option value="female">Female</option>
+
+                                        <% }  else if (manager.gender === 'female') { %>
+                                            <option value="female">Female</option>
+                                             <option value="male">Male</option>
+
+                                        <% } else { %>
+                                         <option selected disabled>select gender</option>
+                                         <option value="male">Male</option>
+                                         <option value="female">Female</option>
+                                        <% }%>
+                                    </select>
+                                </div>
+                                <div class="group_inputs gap-5 col">
+                                    <label for="image">Upload profile</label>
+                                    <input type="file" name="image" class=" pd-15 rounded-5 input-border">
+                                </div>
+                            </div>
+                            <div class="form-group row gap-10 flex-wrap center">
+                                <button class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border">Update</button>
+                            </div>
+                           
+                        </div>
+                    </form>
+                    
+                </div>
+                <br>
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+        <script src="/js/sidebar.js"></script>
+
+        <script>
+            document.querySelector('form').addEventListener('submit', function () {
+                console.log('Form submitted!');
+            });
+        </script>
+        
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<% if (alert.message.length > 0) { %>
+    <div
+      class="alert alert-<%= alert.status %> width-100 rounded-5 space-between row pd-10 center"
+    >
+      <p><%= alert.message %></p>
+      <a
+        href="#"
+        class="messageclose-btn transparent_bg pd-10"
+        onclick="closeAlert(this);"
+      >
+        <p style="font-size: larger">&times;</p>
+      </a>
+    </div>
+    <script>
+      // JavaScript to automatically close the alert after 10 seconds
+      setTimeout(function () {
+        var alertElement = document.querySelector(".alert");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 10000); // 10 seconds
+    
+      function closeAlert(button) {
+        button.parentElement.style.display = "none";
+      }
+    </script>
+    <% } %>

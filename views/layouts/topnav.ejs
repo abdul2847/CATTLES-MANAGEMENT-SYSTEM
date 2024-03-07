@@ -1,0 +1,31 @@
+<div class="topnav width-100">
+    <div class="top-nav-logo menu center gap-10">
+        <p class="hidden dis_menu"><i class="fa-solid fa-bars"></i></p>
+        <img src="/images/logo.png" alt="" class="rounded-10 logo_img">
+        <h1 class="logo_caption">Roddan Foundation Development</h1>
+        <h1 class="logo_caption2 hidden">R F D</h1>
+    </div>
+    <div class="search_profile row center gap-20">
+        <div class="top_nav_properties navbarproperties row center gap-10">
+            <a href="/"> Dashboard</a>
+            <a href="#services"> Services</a>
+            <a href="/contact_us"> Contact</a>
+            <a href="/about_us"> About</a>
+            <% if (isLoggedIn) { %>
+                <!-- Show Cattles button only if the user is logged in -->
+                <a href="/cattles"> Cattles</a>
+            <% } %>
+        </div>
+        <div class="signup-login row center gap-5">
+            <% if (isLoggedIn) { %>
+                <!-- If user is logged in, show a logout button or any other user-specific actions -->
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <!-- If user is not logged in, show login and signup buttons -->
+                <a href="/login">Log in</a>
+                <p style="opacity: 0.3;">or</p>
+                <a href="/signup" class="signup_btn pd-10 prim_btn_color-hover pd-inl-20 prim_btn_color shadow_ligth rounded-5 center">Sign up</a>
+            <% } %>
+        </div>
+    </div>
+</div>

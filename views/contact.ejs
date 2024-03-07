@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./layouts/headers') %>
+  </head>
+  <body>
+    <%- include('./layouts/topnav') %>
+    <div class="card width-100 height-100 center">
+      <div
+        class="card mail_card width-50 rounded-10 shadow_dark  "
+      >
+      <div class="alert welcome_alert_message">
+        <%- include('./messages') %>
+      </div>
+        <form action="/send_feedback" method="post" class="width-100 pd-20 col gap-20">
+          
+            <div class="form-group-card">
+                <h2 class="center letter-spc-2">CONTACT US</h2>
+            </div>
+
+          <div class="col gap-5">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              class="pd-15 rounded-5 input-border width-100"
+              required
+            />
+          </div>
+          <div class="col gap-5">
+            <label for="name">Email</label>
+            <input
+              type="text"
+              name="email"
+              class="pd-15 rounded-5 input-border width-100"
+              required
+            />
+          </div>
+          <div class="col gap-5">
+            <label for="name">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              class="pd-15 rounded-5 input-border width-100"
+              required
+            />
+          </div>
+          <div class="col gap-5">
+            <label for="name">Message</label>
+            <textarea
+              name="message"
+              id=""
+              cols="30"
+              rows="10"
+              class="pd-15 rounded-5 input-border width-100 height-20"
+              required
+            ></textarea>
+          </div>
+          <button
+            class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+    <%- include('./layouts/menuModal') %>
+    <section class="card">
+      <%- include('./layouts/footer') %>
+    </section>
+    <script src="/js/home.js"></script>
+  </body>
+</html>

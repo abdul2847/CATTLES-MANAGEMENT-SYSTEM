@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Webpage Title</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        box-sizing: border-box;
+      }
+
+      .body_wrapper {
+        display: flex;
+      }
+
+      /* Sidebar Styles */
+      .side_bar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+      }
+
+      /* Topbar Styles */
+      .top-nav {
+        height: 60px;
+        background-color: #555;
+        color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      /* Main Content Styles */
+      .main-wrapper {
+        flex: 1;
+        margin-left: 250px;
+      }
+
+      /* Additional styling for demonstration purposes */
+      .logo_banner img {
+        width: 100%;
+        height: auto;
+      }
+
+      .close_btn {
+        cursor: pointer;
+      }
+
+      .search_profile {
+        margin-left: auto;
+      }
+
+      .profile_img img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .top-nav-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .search_profile {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  margin-right: 20px;
+  flex-shrink: 0; /* Prevent this element from shrinking */
+}
+
+.search input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+  max-width: 200px; /* Adjust the maximum width as needed */
+  width: 100%; /* Take up remaining width */
+}
+
+.search button {
+  padding: 8px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile {
+  text-decoration: none;
+  padding: 8px 15px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.switch {
+  cursor: pointer;
+  background-color: #333;
+  padding: 5px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.logout {
+  text-decoration: none;
+  padding: 8px 15px;
+  background-color: #d9534f; /* Bootstrap's danger color */
+  color: white;
+  border-radius: 5px;
+}
+
+      .profile_content {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @media (max-width: 768px) {
+        .search_profile {
+          flex-direction: column; /* Stack items vertically on small screens */
+          align-items: flex-start; /* Align items to the start on small screens */
+        }
+
+        .search {
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Add your own styling for other elements as needed */
+    </style>
+  </head>
+
+  <body>
+    <div class="body_wrapper">
+      <aside class="side_bar">
+        <div class="logo_banner">
+          <img src="/images/banner.png" alt="Logo" />
+          <div class="close_btn">X</div>
+        </div>
+        <div class="side_bar_properties">
+          <a href="/"> Home</a>
+          <a href="/owners">Owners</a>
+          <a href="/cattles">Cattles</a>
+        </div>
+      </aside>
+      <div class="main-wrapper">
+        <div class="top-nav">
+          <div class="top-nav-logo menu">
+            <img src="/images/logo.png" alt="Logo" class="rounded-10" />
+          </div>
+          <div class="search_profile">
+            <form action="" method="post">
+              <div class="search">
+                <input type="text" name="query" placeholder="Search Owner" />
+                <button class="pd-inl-10">Search</button>
+              </div>
+            </form>
+            <div class="profile">
+              <div class="profile_img">
+                <img src="../public/images/logo.png" alt="Profile" />
+              </div>
+              <div class="profile_content">
+                <a href="./profile.html" class="profile rounded-5" id="profile"
+                  >Profile</a
+                >
+                <div class="row gap-10 pd-10 width-100 space-between">
+                  <p>Theme</p>
+                  <div class="switch card rounded-20" id="theme-toggle">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+                <a href="#" class="logout rounded-5">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- Add your content here -->
+        <section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil a
+          quibusdam eveniet deserunt facere harum architecto, laudantium omnis
+          dolorem? Perspiciatis non quasi vel ut excepturi doloremque ex
+          adipisci, incidunt sit voluptate voluptatum vitae animi quam,
+          voluptatibus consequuntur ad, odio vero sequi blanditiis? Aut
+          dignissimos veritatis voluptate molestias atque cum corrupti eligendi,
+          eveniet quis magnam accusantium accusamus rem assumenda reiciendis
+          doloremque incidunt eum voluptas deserunt autem mollitia nam
+          architecto suscipit inventore? Praesentium veritatis deserunt ex. Eos,
+          laudantium. Harum id incidunt dolor itaque nam voluptatum voluptas,
+          quod, asperiores commodi labore perspiciatis blanditiis nostrum? Rerum
+          consectetur iusto eveniet incidunt illo illum ea perferendis obcaecati
+          reprehenderit quae architecto fugiat totam, dolorem sequi excepturi.
+          Tenetur, debitis deserunt ipsum repellendus consequuntur laboriosam
+          sapiente ex in culpa atque molestias minus exercitationem corporis,
+          sit soluta nobis magni excepturi nihil reiciendis placeat explicabo.
+          Obcaecati voluptatem explicabo beatae a quidem minima, ex, error ipsam
+          veniam officiis accusamus libero ad.
+        </section>
+      </div>
+    </div>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roddan Development Foundation</title>
+
+    <%- include('./layouts/headers') %>
+  </head>
+
+  <body>
+    <div class="body_wrapper">
+      <%- include('./layouts/sidebar') %>
+      <div class="main-wrapper">
+        <%- include('./layouts/top_nav') %>
+
+        <div class="container_wrapper gap-30 col pd-inl-15">
+          <div class="detail_section card rounded-10 col">
+            <div class="row width-100 flex-wrap-reverse gap-30 pd-20">
+              <div class="latest_added_card chart card shadow_ligth width-25 rounded-10">
+                <div class="headline pd-10 width-100">
+                  <h4>latest</h4>
+                </div>
+                <div class="chart_content pd-10 col gap-10">
+                  <% if (latestOwners && latestOwners.length > 0) { %> <%
+                    latestOwners.forEach(owner => { %>
+                    <a href="/manager/view/owners/<%= owner._id  %>">
+                        <div class="latest_added gap-10 width-100 row space-between rounded-5 width-100 pd-5">
+                            <div class=" row gap-10 center">
+                                <div class="quick_action_img X">
+                                    <img
+                                        src="/uploads/users/<%= owner.image  %>"
+                                        alt="<%= owner.name %>"
+                                        class="rounded-40 shadow_ligth"
+                                    />
+                                </div>
+                                <div class="col gap-10">
+                                <p class="ft-sz-15">Name: <%= owner.name %></p>
+                                <p class="ft-sz-15">Location: <%= owner.location %></p>
+                                </div>
+                            </div>
+                            <div class="added_time center pd-5">
+                            <p class="ft-sz-10">
+                                <%= owner.createdAt.toLocaleTimeString() %>
+                            </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% }); %> 
+                  <% } %>
+                </div>
+              </div>
+              <div
+                class="calender detail_card flex-wrap rounded-10 row "
+              >
+                <div class="detail_image">
+                  <img
+                    src="/uploads/users/<%= owner.image  %>"
+                    alt=""
+                    class="rounded-5 shadow_ligth"
+                  />
+                </div>
+                <div class="calender_condent pd-20 col gap-10">
+                  <div class="row gap-10">
+                    <h4>Owner :</h4>
+                    <p><%= owner.name %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Owner Tag:</h4>
+                    <p><%= owner.uniqueCode %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Owner Contact :</h4>
+                    <p><%= owner.phone %></p>
+                  </div>
+                  <% if (owner.email) { %>
+                  <div class="row gap-10">
+                    <h4>Email:</h4>
+                    <a href="abdulhafis2847@gmail.com" target="_blank"
+                      ><%= owner.email %></a
+                    >
+                  </div>
+                  <% } %>
+
+                  <div class="row gap-10">
+                    <h4>Location :</h4>
+                    <p><%= owner.location %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Gender :</h4>
+                    <p><%= owner.gender %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="related_cattels width-100 pd-20 col gap-10">
+              <div class="headline pd-10 width-100">
+                <h4>Cattles Owned</h4>
+              </div>
+
+              <div
+                class="card_container width-100 center row gap-20 flex-wrap pd-10"
+              >
+              <% if (ownerCattles && ownerCattles.length > 0) { %>
+                            <% ownerCattles.forEach((cattle) => { %>
+                                <div class="owner_card rounded-10  shadow_ligth col ">
+                                  <a href="/manager/view/cattle/<%= cattle._id  %>">
+                                    <div class="owner_img">
+                                        <img src="/uploads/cattles/<%= cattle.images %>" alt="">
+                                    </div>
+                                    <div class="owner_descrip pd-10 gap-10 col">
+                                        <p>Owner: <%= cattle.owner.name  %></p>
+                                        <p>Location: <%= cattle.owner.location  %></p>
+                                        <p>Color: <%= cattle.color  %></p>
+                                        <p>Health Status: <%= cattle.healthStatus  %></p>
+                                    </div>
+                                  </a> 
+                                </div>
+                            <% }); %>
+                        <% } else { %>
+                            <h3>No Cattles found</h3>
+                        <% } %>
+
+              </div>
+            </div>
+          </div>
+          <%- include('./layouts/footer') %>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+<script src="/js/sidebar.js"></script>
+
+  </body>
+</html>

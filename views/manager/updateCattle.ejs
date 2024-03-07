@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+
+    <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+
+        <%- include('./layouts/sidebar') %>
+            <div class="main-wrapper">
+
+                <%- include('./layouts/top_nav') %>
+
+                    <div class="container_wrapper gap-10 col pd-inl-15 ">
+                        <div class="card shadow_dark form-group-card  width-100 rounded-10 pd-30 ">
+                            <form action="/manager/update/cattle/<%= cattle._id  %>" method="post" enctype="multipart/form-data" class="width-100">
+                                <div class="card width-100 col gap-20">
+                                    <%- include('./messages') %>
+
+                                    <h2 class="center letter-spc-2">UPDATE CATTLE</h2>
+                                    <br>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="ownername">Owner</label>
+                                        <!-- Owner Full Name -->
+                                        <input type="text" name="ownername" value="<%= cattle.owner.name  %>" 
+                                        class=" pd-15 rounded-5 input-border"
+                                            placeholder="Owner Full Name" disabled>
+                                        </div>
+                                        <div class="group_inputs col gap-5">
+                                            <label for="color">Cattle Color:</label>
+                                            <!-- Cattle Color -->
+                                        <input type="text" name="color" class="  pd-15 rounded-5 input-border"
+                                            placeholder="Cattle Color"
+                                            value="<%= cattle.color  %>">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="breed">Cattle Breed</label>
+                                            <!-- Location (Assuming location is equivalent to breed in the mongoose model) -->
+                                        <input type="text" name="breed" value="<%= cattle.breed  %>" class=" pd-15 rounded-5 input-border"
+                                            placeholder="Breed">
+                                        </div>                                       
+                                        <div class="group_inputs gap-5 col">
+                                            <!-- Estimated Age -->
+                                            <label for="age">Cattle Esstimates Age</label>
+                                            <input type="text" name="age" value="<%= cattle.age  %>" class=" pd-15 rounded-5 input-border"
+                                                placeholder="Estimated Age">
+                                        </div>                                      
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="weight">Estimated Weight</label>
+                                            <input type="text" name="weight"
+                                                class=" pd-15 rounded-5 input-border"
+                                                placeholder="Initial Weight"
+                                                value="<%= cattle.weight  %>" 
+                                                >
+                                        </div>
+                                       <div class="group_inputs gap-5 col">
+                                        <label for="identificationNumber">Tag Number</label>
+                                        <input type="text" name="identificationNumber"
+                                            class=" pd-15 rounded-5 input-border"
+                                            placeholder="Identification Number" 
+                                            value="<%= cattle.identificationNumber  %>" 
+                                            disabled >
+                                       </div>                                      
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="healthStatus">Health Status</label>
+                                            <select name="healthStatus" class=" pd-15 rounded-5 input-border">
+                                                <option value="<%= cattle.healthStatus  %>" selected disabled><%= cattle.healthStatus  %></option>
+                                                <option value="Healthy">Healthy</option>
+                                                <option value="Sick">Sick</option>
+                                                <option value="Pregnant">Pregnant</option>
+                                                <option value="Injured">Injured</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+
+                                        </div>
+                                       <div class="group_inputs gap-5 col">
+                                        <label for="images">Upload Cattle Image:</label>
+                                        <input type="file" name="images"
+                                            class=" pd-15 rounded-5 input-border" value="<%= cattle.images  %>">
+                                       </div>
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="vaccinationName">Vaccine Name</label>
+                                            <!-- Vaccinations (Assuming you want to capture vaccination name and date) -->
+                                            <input type="text" name="vaccinationName"
+                                                class=" pd-15 rounded-5 input-border"
+                                                placeholder="Vaccination Name"
+                                                value="<%= cattle.vaccinations %>"
+                                                >
+                                        </div>
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="vaccinationDate">Last Vacinated Date:</label>
+                                            <input type="date" name="vaccinationDate"
+                                                class=" pd-15 rounded-5 input-border"
+                                                placeholder="Vaccination Date"
+                                                <% if (cattle.vaccinationDate) { %>
+                                                    value=" <%=  cattle.vaccinationDate.toLocaleDateString()%>"
+                                                <% } %>
+                                                >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="dateOfBirth">Esstimated Date Of Birth: </label>
+                                            <input type="text" name="dateOfBirth"
+                                                class="pd-15 rounded-5 input-border"
+                                                placeholder="Estimated Date Of Birth"
+                                                value="<%= cattle.dateOfBirth.toLocaleDateString() %>"
+                                                >
+                                        </div>
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="gender">Gender</label>
+                                            <select name="gender" class="pd-15 rounded-5 input-border">
+                                                <% if (cattle.gender === 'Male') { %>
+                                                    <option value="<%= cattle.gender  %>">Male</option>
+                                                    <% }  else if (cattle.gender === 'Female') { %>
+                                                        <option value="Female">Female</option>
+                                                        <% } 
+                                                 else { %>
+                                                    <option selected disabled>select gender</option>
+                                                    <% }%>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="pregnancies">Number Of Pregnancies:</label>
+                                            <input type="number" name="pregnancies"
+                                                class=" pd-15 rounded-5 input-border"
+                                                placeholder="Number of Pregnancies"
+                                                value="<%= cattle.reproductionHistory.pregnancies %>"
+                                                >
+                                        </div>
+                                        <div class="group_inputs gap-5 col">
+                                            <label for="lastCalvingDate">Last Calving Date: </label>
+                                            <input type="date" name="lastCalvingDate"
+                                                class=" pd-15 rounded-5 input-border"
+                                                placeholder="Last Calving Date"
+                                                value="<%= cattle.reproductionHistory.lastCalvingDate.toLocaleDateString() %>"
+                                                >
+                                        </div>                                      
+                                    </div>
+                                    <div class="form-group row flex-wrap gap-10">
+
+                                        <div class="row">
+                                            <label>Is Pregnant:</label>
+                                            <input type="checkbox" name="isPregnant"
+                                            <% if (cattle.reproductionHistory.isPregnant === true) { %>
+                                                checked 
+                                            <% } %>
+                                             >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row gap-10 flex-wrap center">
+                                        <textarea name="notes" class="width-100 pd-15 rounded-5 input-border"
+                                            placeholder="Notes" ><%= cattle.notes%></textarea>
+                                    </div>
+                                    <div class="form-group row gap-10 flex-wrap center">
+                                        <button class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border"
+                                            type="submit">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+            </div>
+
+
+            <script src="/js/dashboard.js"></script>
+            <script src="/js/sidebar.js"></script>
+
+
+</body>
+
+</html>

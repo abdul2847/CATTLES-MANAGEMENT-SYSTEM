@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./layouts/headers') %>
+</head>
+<body>
+    <%- include('./layouts/topnav') %>
+    <div class="hero_section width-100 card height-90">
+        <img src="/images/landing_img.jpg" alt=""  class="bg_img" loading="eager">
+        <div class="hero_content  center row height-90 width-100 space-between ">
+            <div class="welcome_message col gap-10 ">
+                <div class="welcome row gap-20">
+                    <h3>Welcome </h2>
+                    <p>to</p>
+                </div>
+                <h2>Roddan Development</h2>
+                <h2>Foundation</h2>
+                <div class="welcome_content width-70">
+                    <p>
+                        Where we provide you with the best care and service for your farm animals 
+                        
+                    </p>
+                </div>
+                <br>
+                <div class="explore_btn width-70">
+                    <a href="#services" class="rounded-20 pd-10 prim_btn_color-hover pd-inl-40 prim_btn_color shadow_ligth width-25">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="seivice_section card" id="services">
+        <h2 class="service_h2">Our Services</h2>
+
+        <div class="services">
+            <div class="service" data-aos="fade-up">
+                <i class="fas fa-paw"></i>
+                <h3>Cattle Management</h3>
+                <p> Our expert team is dedicated to the comprehensive management of cattle, ensuring their well-being,
+                    health, and productivity. From nutritional plans to medical care, we implement the latest
+                    practices to optimize the growth and vitality of your herd. Partner with us for sustainable and
+                    efficient cattle management solutions.</p>
+            </div>
+
+            <div class="service" data-aos="fade-up">
+                <i class="fas fa-child"></i>
+                <h3>Calf Nurturing</h3>
+                <p> At Roddan Development Foundation, we specialize in providing tender care and nurturing for calves.
+                    Our experienced team focuses on creating a nurturing environment that promotes healthy growth,
+                    early development, and disease prevention. Ensure the future success of your herd by entrusting
+                    us with the well-being of your calves.</p>
+            </div>
+
+            <div class="service" data-aos="zoom-out-right">
+                <i class="fas fa-feather-alt"></i>
+                <h3>Poultry Management</h3>
+                <p>Exciting things are hatching! Our Poultry Management service is currently in development and will
+                    be coming soon. Stay tuned for innovative solutions in poultry care, ensuring the success of your
+                    poultry enterprise.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="card center" >
+    <br>
+    <br>    
+    <br>
+    <div class="pd-inl-40 width-70"  data-aos="zoom-out-right" >
+      <div class=" pd-20 " >
+        <h2 class="service_h2">Our Mission</h2>
+    </div>
+    <p style="text-align: center;">
+      At Roddan Development Foundation, our mission is to revolutionize the
+      agricultural landscape by fostering sustainable practices and
+      empowering farming communities. We are dedicated to creating a world
+      where every farmer thrives, and every harvest represents not just a
+      bounty of crops but a testament to our commitment to the earth and its
+      stewards.
+    </p>
+    <br>
+        <br>
+        <br>    
+        <br> 
+    </div> 
+           
+    </section>
+    <section class="pd-inl-40 card">
+        <div class=" pd-20">
+            <h2 class="service_h2">Our Values</h2>
+        </div>
+        <div class="values"  data-aos="flip-right">
+          <div class="value">
+            <h3 class="pd-tb-20">Commitment</h3>
+            <p style="text-align: center;">
+              In our pursuit of agricultural excellence, commitment is the
+              foundation upon which we build lasting partnerships. We are
+              committed to the prosperity of farmers, the well-being of
+              livestock, and the preservation of the environment. Through
+              unwavering dedication, we strive to make a positive impact on the
+              communities we serve.
+            </p>
+          </div>
+          <div class="value"  data-aos="flip-right" data-aos-duration="1000">
+            <h3 class="pd-tb-20">Innovation</h3>
+            <p style="text-align: center;">
+              Embracing innovation is at the core of our ethos. We continually
+              explore cutting-edge technologies and progressive methodologies to
+              enhance agricultural practices. By fostering a culture of
+              creativity, we aim to drive positive change and shape the future
+              of sustainable farming.
+            </p>
+          </div>
+          <div class="value"  data-aos="flip-right"  data-aos-duration="2000">
+            <h3 class="pd-tb-20">Sustainability</h3>
+            <p style="text-align: center;">
+              Sustainability is not just a buzzword; it's our guiding principle.
+              We believe in responsible practices that ensure the longevity of
+              our planet. From eco-friendly farming techniques to
+              resource-efficient processes, we are committed to creating a
+              sustainable and harmonious coexistence between agriculture and the
+              environment.
+            </p>
+          </div>
+        </div>
+        <br>
+        <br>
+    </section>
+   
+    <%- include('./layouts/menuModal') %>
+
+    <section class="card">
+        <%- include('./layouts/footer') %>
+      </section>
+    <!-- Back to Top Button -->
+    <button id="back-to-top">&#8593;</button>
+     <script src="/js/home.js"></script>
+
+</body>
+</html>

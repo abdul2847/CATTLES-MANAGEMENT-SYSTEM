@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+     <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+
+            <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+
+                <%- include('./layouts/top_nav') %>
+    
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="alert welcome_alert_message">
+                    <%- include('./messages') %>
+                  </div>
+                <div class="card table_card shadow_dark  form-group-card width-100 rounded-10 pd-30 ">
+
+                    <div class="headline tableheadline row space-between pd-inl-15 pd-10">
+                        <a href="/manager/edit" class="owners_page border_bottom rounded-20 pd-inl-15  pd-10">Owners</a>
+                        <a href="/manager/cattle/edit" class="cattle_page  pd-10">Cattles</a>
+                        <a href="/manager/managers/edit" class="manager_page  pd-10">Managers</a>
+                    </div>
+                    <br>
+                    <table class="width-100 owners_table">
+                        <thead class="thead">
+                            <tr class="center-align">
+                                <td>Index</td>
+                                <td>Image</td>
+                                <td>Name</td>
+                                <td>Phone</td>
+                                <td>Action</td>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            <% if (owners && owners.length> 0) { %>
+                                <% owners.forEach((owner, index) => { %>
+                                    <tr>
+                                        <td style="text-align: center;"><%= index  %></td>
+                                        <td class="table_image " style="text-align: center;"><img src="/uploads/users/<%= owner.image  %>" alt=""></td>
+                                        <td style="text-align: center;"><%= owner.name  %></td>
+                                        <td style="text-align: center;"><%= owner.phone  %></td>
+                                        <td class="Actions_btns  gap-10" style="text-align: center;"> 
+                                            <a href="/manager/view/owners/<%= owner._id  %>" class="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a href="/manager/update/owner/<%= owner._id  %>" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            
+                                            <a href="#" class="delete" data-owner-id="<%= owner._id %>">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                            <% } else { %>
+                                <tr class="width-100 center">
+                                    <td>
+
+                                        <h3 class="pd-10 center">No Owners Data Found</h3>
+                                    </td>
+                                </tr>
+                            <% } %>
+                           
+                          
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <div class="pargination center row gap-20">
+                        <% if (currentPage > 1) { %>
+                            <a href="/manager/edit/?page=<%= currentPage - 1 %>" class="width-20 pd-10 prim_btn_color rounded-20">Previous</a>
+                            <% } %>
+                            <p><%= currentPage%></p>
+                            <% if (currentPage < totalPages) { %>
+                            <a href="/manager/edit/?page=<%= currentPage + 1 %>"class="width-20 pd-10 prim_btn_color rounded-20" >Next</a>
+                            <% } %>
+                        
+                    </div>
+
+                </div>
+                
+          <%- include('./layouts/footer') %>
+                
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+        <script src="/js/sidebar.js"></script>
+
+
+        <script>
+            const deleteButtons = document.querySelectorAll('.delete');
+        
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+        
+                    const ownerId = this.getAttribute('data-owner-id');
+                    
+                    // Show a confirmation dialog
+                    const isConfirmed = confirm('Are you sure you want to delete this owner?');
+        
+                    if (isConfirmed) {
+                        // Redirect to the delete route
+                        window.location.href = `/manager/delete/owner/${ownerId}`;
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>

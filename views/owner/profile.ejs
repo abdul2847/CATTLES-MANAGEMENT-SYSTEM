@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+    <%- include('./layouts/headers') %>
+    
+</head>
+
+<body>
+    <div class="body_wrapper">
+        
+        <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+        <%- include('./layouts/top_nav') %>
+
+
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="card shadow_dark   width-100 rounded-10  hidden_overflow">
+                    <% if (owner.image) { %>
+                        <div class="user_profile">
+                            <div>
+                                 <i></i>
+                            <img class="pro_img" src="/uploads/users/<%= owner.image  %>" alt="">
+                            </div>
+                           
+                            <div class="profile_picture">
+                                <img src="/uploads/users/<%= owner.image  %>" alt="">
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="user_profile">
+                            <div>
+                                 <i></i>
+                            <img class="pro_img" src="/images/profile.jpg" alt="<%= owner.name  %>">
+                            </div>
+                           
+                            <div class="profile_picture">
+                                <img src="/images/profile.jpg %>"  alt="<%= owner.name  %>">
+                            </div>
+                        </div>
+                        <% } %>
+                   
+                    <div class="pd-inl-15  pd-30 ">
+                        <form action="" method="post">
+                        <div class="card width-100 col gap-20 ">
+                            <div class="staffID width-100 pd-inl-15">
+                                <p>Tag Id: <%= owner.uniqueCode  %></p>
+                            </div>
+                            <br>
+                            <br>
+                            <h2 class="center">My Account</h2>
+                            <br>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <input type="text" name="name" id=""  value="<%= owner.name  %>" class="width-665px pd-15 rounded-5 input-border"
+                                    placeholder="Full Name">
+                                    <input
+                                    type="text"
+                                    name="email"
+                                    value="<%= owner.email ? owner.email : '' %>"
+                                    id=""
+                                    class="width-665px pd-15 rounded-5 input-border"
+                                    placeholder="Email"
+                                  >                                  
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <input type="text" name="location" id="" value="<%= owner.location  %>" class="width-665px pd-15 rounded-5 input-border"
+                                    placeholder="Location">
+                                <input type="text" name="house_Address" value="<%= owner.House_No  %>" id="" class="width-665px pd-15 rounded-5 input-border" placeholder="House Address">
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10  ">
+                                <input type="text" name="contact" id="" value="<%= owner.phone  %>" class="width-665px pd-15 rounded-5 input-border"
+                                    placeholder="Contact" inputmode="tel">
+                                <input type="password" name="password" id="" disabled class="width-665px pd-15 rounded-5 input-border" placeholder="Password" minlength="6" maxlength="16" >
+                            </div>
+                            <div class="form-group row flex-wrap gap-10">
+                                <select name="gender" id=""  class="width-665px pd-15 rounded-5 input-border">
+                                    <% if (owner.gender === 'male') { %>
+                                        <option value="<%= owner.gender  %>">Male</option>
+                                        <% }  else if (owner.gender === 'female') { %>
+                                            <option value="female">Female</option>
+                                            <% } 
+                                     else { %>
+                                        <option selected disabled>select gender</option>
+                                        <% }%>
+                                </select>
+                                <input type="file" name="image" class="width-665px pd-15 rounded-5 input-border">
+                            </div>
+                            <div class="form-group row gap-10 flex-wrap center">
+                                <button class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border">Update</button>
+                            </div>
+                           
+                        </div>
+                    </form>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div class="footer height-20 width-100">
+                    <p>@hafis</p>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+
+
+</body>
+
+</html>

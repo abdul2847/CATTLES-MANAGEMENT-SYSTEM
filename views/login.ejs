@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roddan Development Foundation</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+
+  <body>
+    <div class="row width-100 height-100 hidden_overflow">
+      <div class="login_card center pd-inl-20 col gap-10">
+        <div class="logo_banner pd-15">
+          <h1>Roddan Development Foundation</h1>
+        </div>
+        <form action="/login" method="post" class="width-100">
+          <div
+            class="card login_sec  width-100 rounded-10 gap-20 col center"
+          >
+            <div class="welcome_messages width-100">
+              <p>Welcome to Roddan</p>
+            </div>
+            <%- include('./messages') %>
+
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Full Name"
+              class="width-100 pd-15 rounded-5 name input-border"
+            />
+            <select
+              name="user_type"
+              id="user_type"
+              class="user_type width-100 pd-15 rounded-5 input-border"
+            >
+              <option selected disabled>Select User Type</option>
+              <option value="manager">Manager</option>
+              <option value="owner">Owner</option>
+              <option value="guest">Guest</option>
+            </select>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              class="width-100 password pd-15 rounded-5 input-border"
+            />
+
+            <div
+              class="password_reset password width-100 center row space-between pd-inl-10"
+            >
+              <div class="remember_me row gap-10">
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  id="checkbox"
+                  class="input-border"
+                />
+                <p>Remember me</p>
+              </div>
+              <a href="/forget_password" class="">Forgot Password.?</a>
+            </div>
+            <button
+              type="password"
+              class="width-100 pd-15 rounded-5 prim_btn_bg_fill prim_btn_color-hover"
+            >
+              Login
+            </button>
+            <div class="sign_up_media hidden">
+              <a href="/signup" class="">Create An Account</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="login_image">
+        <div class="signup_page center hidden">
+          <a
+            href="/signup"
+            class="pd-10 prim_btn_color-hover prim_btn_color shadow_ligth rounded-5 width-20 center"
+            >Sign Up</a
+          >
+        </div>
+        <img src="/images/landing_img.jpg" alt="" loading="lazy"/>
+      </div>
+    </div>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

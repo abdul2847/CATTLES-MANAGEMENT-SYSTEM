@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./layouts/headers') %>
+
+    <style>
+      /* Add any additional inline styles here */
+
+      header {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 0;
+      }
+
+
+      h2 {
+        color: #007bff;
+        font-size: 32px;
+        font-weight: 200;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./layouts/topnav') %>
+    <div class="card width-100">
+        <br>
+   
+      <br />
+
+      <br />
+      <section class="pd-inl-40 height-100">
+        <h2>Our Team</h2>
+        <div class="team">
+          <div class="team-member">
+            <img src="/images/avatar (3).jpg" alt="Team Member 1" />
+            <div class="team-member-details">
+              <h3>John Doe</h3>
+              <p>CEO</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <img src="/images/avatar (9).avif" alt="Team Member 2" />
+            <div class="team-member-details">
+              <h3>Jane Smith</h3>
+              <p>COO</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <img src="/images/avatar (10).avif" alt="Team Member 3" />
+            <div class="team-member-details">
+              <h3>Robert Johnson</h3>
+              <p>Lead Agronomist</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <%- include('./layouts/menuModal') %>
+    <%- include('./layouts/footer') %>
+    <script src="/js/home.js"></script>
+  </body>
+</html>

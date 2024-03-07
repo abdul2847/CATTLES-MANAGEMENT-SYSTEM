@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/brands.css">
+
+</head>
+
+<body>
+    <div class=" row width-100 height-100 hidden_overflow">
+        <div class="login_card center pd-inl-20 col gap-10">
+            <div class="previous width-100 " id="previousbnt">
+                <a href="#" class="pd-10 prim_btn_color-hover rounded-40 "><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <div class="logo_banner pd-10">
+                <h1>Roddan Development Foundation</h1>
+            </div>
+            <br>
+
+            <form action="/manager/add/owner" method="post" enctype="multipart/form-data" class="width-100">
+                <div class="card login_sec  width-100  rounded-10 gap-20 col center">
+                    <div class="welcome_messages width-100">
+                        <p>Welcome to Roddan</p>
+                    </div>
+                   <%- include('./messages') %>
+
+                    <div class="first_form col gap-20 width-100 ">
+
+
+                        <input type="text" name="name" placeholder="Full  Name"
+                            class="width-100 password pd-15 rounded-5 input-border">
+
+                        <input type="text" name="email" placeholder="Email"
+                            class="width-100 password pd-15 rounded-5 input-border">
+
+                        <input type="text" name="location" placeholder="Location"
+                            class="width-100 pd-15 rounded-5 name input-border ">
+
+                        <input type="text" name="house_Address" placeholder="House Address"
+                            class="width-100 pd-15 rounded-5 name input-border ">
+
+                        <input type="text" name="phone" placeholder="Contact   e.g. 02 xxxxxxxx / 05 xxxxxxxx"
+                            class="width-100 pd-15 rounded-5 name input-border ">
+
+
+                        <a type="password"
+                        class="width-100 pd-15 rounded-5 prim_btn_bg_fill prim_btn_color-hover center" id="nextButton" >Next</a>
+
+                    </div>
+                    <div class="second_form col gap-20 width-100 ">
+                        
+                        <select name="gender" id="user_type"
+                            class="user_type width-100 pd-15 rounded-5 input-border">
+                            <option>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+
+                        <input type="file" name="image" 
+                            class="width-100 pd-15 rounded-5 name input-border ">
+
+                        <input type="password" name="password" placeholder="Password"
+                            class="width-100 password pd-15 rounded-5 input-border">
+
+                        <input type="password" name="confirm_password" placeholder="Confim Password"
+                            class="width-100 password pd-15 rounded-5 input-border">
+
+                           
+
+                            <button 
+                        class="width-100 pd-15 rounded-5 prim_btn_bg_fill prim_btn_color-hover">Submit</button>
+
+                    </div>
+
+                  
+                    
+                </div>
+            </form>
+        </div>
+        <div class="login_image">
+            <div class="signup_page center hidden">
+                <a href="/login"
+                    class=" pd-10 prim_btn_color-hover prim_btn_color shadow_ligth rounded-5 width-20 center">Login</a>
+            </div>
+            <img src="/images/landing_img.jpg" alt="">
+        </div>
+    </div>
+    <script src="/js/login.js"></script>
+
+
+</body>
+
+</html>

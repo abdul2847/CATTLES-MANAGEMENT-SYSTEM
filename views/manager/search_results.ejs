@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+    <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+        <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+        
+                <%- include('./layouts/top_nav') %>
+    
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="owner_container card   width-100 rounded-10 pd-30 ">
+                    <div class="headline width-100 row space-between pd-10">
+                        <h3 class="letter-spc-2">Search Results For: <span class="primaryspan"><%= query %></span></h3>
+                        
+                    </div>
+                    <br>
+                    <div class="card_container row gap-20 flex-wrap pd-10">
+                        <% if (owners && owners.length > 0) { %>
+                         <% owners.forEach(owner => { %>
+                        <div class="owner_card rounded-5  border_wrap col ">
+                            <a href="/manager/view/owners/<%= owner._id  %>">
+                            <div class="owner_img">
+                                <img src="/uploads/users/<%= owner.image  %>" alt="" style="height: 200px; object-fit: cover;">
+                            </div>
+                            <div class="owner_descrip pd-10 gap-10 col">
+                                <p>Name: <%= owner.name  %></p>
+                                <p>Contact: <%= owner.phone  %></p>
+                                <% if (owner.email) { %>
+                                 <p>Email: <%= owner.email  %></p>
+                                <% } %>
+                                <p>Tag Number: <%= owner.uniqueCode  %></p>
+                            </div>
+                            </a>
+                        </div>
+                         <% }) %>
+                        <% } else { %>
+                            <h3>No Results Foung for :  <span class="primaryspan"><%= query %></span></h3>
+                             <% } %>
+                    </div>
+                    <br>
+                    <br>
+                  
+                    <div class="pargination center row gap-20">
+                        <% if (currentPage > 1) { %>
+                            <a href="/search/?page=<%= currentPage - 1 %>" class="width-20 pd-10 prim_btn_color rounded-20">Previous</a>
+                            <% } %>
+                            <p><%= currentPage%></p>
+                            <% if (currentPage < totalPages) { %>
+                            <a href="/search/?page=<%= currentPage + 1 %>"class="width-20 pd-10 prim_btn_color rounded-20" >Next</a>
+                            <% } %>
+                       
+                        
+                    </div>
+
+                </div>
+
+                <%- include('./layouts/footer') %>
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+        <script src="/js/sidebar.js"></script>
+
+
+</body>
+
+</html>

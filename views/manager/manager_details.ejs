@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roddan Development Foundation</title>
+
+    <%- include('./layouts/headers') %>
+  </head>
+
+  <body>
+    <div class="body_wrapper">
+      <%- include('./layouts/sidebar') %>
+      <div class="main-wrapper">
+        <%- include('./layouts/top_nav') %>
+
+        <div class="container_wrapper gap-30 col pd-inl-15">
+          <div class="detail_section card rounded-10 col">
+            <div class="row width-100 flex-wrap-reverse gap-30 pd-20">
+              <div class="chart latest_added_card card shadow_ligth width-25 rounded-10">
+                <div class="headline pd-10 width-100">
+                  <h4>latest</h4>
+                </div>
+                <div class="chart_content pd-10 col gap-10">
+                  <% if (latestManagers && latestManagers.length > 0) { %> <%
+                    latestManagers.forEach(manager => { %>
+                    <a href="/manager/view/manager/<%= manager._id  %>">
+                        <div class="latest_added gap-10 width-100 row space-between rounded-5 width-100 pd-5">
+                            <div class=" row gap-10 center">
+                                <div class="quick_action_img X">
+                                    <img
+                                        src="/uploads/users/<%= manager.image  %>"
+                                        alt="<%= manager.name %>"
+                                        class="rounded-40 shadow_ligth"
+                                    />
+                                </div>
+                                <div class="col gap-10">
+                                <p class="ft-sz-15">Name: <%= manager.name %></p>
+                                <p class="ft-sz-15">Location: <%= manager.location %></p>
+                                </div>
+                            </div>
+                            <div class="added_time center pd-5">
+                            <p class="ft-sz-10">
+                                <%= manager.createdAt.toLocaleTimeString() %>
+                            </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% }); %> 
+                  <% } %>
+                </div>
+              </div>
+              <div
+                class="calender detail_card flex-wrap rounded-10 row "
+              >
+                <div class="detail_image">
+                  <img
+                    src="/uploads/users/<%= manager.image  %>"
+                    alt=""
+                    class="rounded-5 shadow_ligth"
+                  />
+                </div>
+                <div class="calender_condent pd-20 col gap-10">
+                  <div class="row gap-10">
+                    <h4>Manager Name :</h4>
+                    <p  ><%= manager.name %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Manager staffId:</h4>
+                    <p ><%= manager.staffId %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Manager Contact :</h4>
+                    <p ><%= manager.phone %></p>
+                  </div>
+                  <% if (manager.email) { %>
+                  <div class="row gap-10">
+                    <h4>Manager Email:</h4>
+                    <a href="maiilto:abdulhafis2847@gmail.com"   target="_blank"
+                      ><%= manager.email %></a
+                    >
+                  </div>
+                  <% } %>
+
+                  <div class="row gap-10">
+                    <h4>Manager Location :</h4>
+                    <p ><%= manager.location %></p>
+                  </div>
+                  <div class="row gap-10">
+                    <h4>Manager Gender :</h4>
+                    <p ><%= manager.gender %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+ 
+          </div>
+          <%- include('./layouts/footer') %>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+<script src="/js/sidebar.js"></script>
+
+  </body>
+</html>

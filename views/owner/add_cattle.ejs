@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roddan Development Foundation</title>
+
+    <%- include('./layouts/headers') %>
+</head>
+
+<body>
+    <div class="body_wrapper">
+            
+            <%- include('./layouts/sidebar') %>
+        <div class="main-wrapper">
+
+            <%- include('./layouts/top_nav') %>
+    
+            <div class="container_wrapper gap-10 col pd-inl-15 ">
+                <div class="card shadow_dark form-group-card height-80 width-100 rounded-10 pd-30 ">
+                    <form action="" method="post">
+                        <div class="card width-100 col gap-20 ">
+                            <h2 class="center letter-spc-2">ADD CATTLE</h2>
+                            <br>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <input type="text" name="name" id="" class="width-663px pd-15 rounded-5 input-border"
+                                    placeholder="Owner Full Name">
+                                <input type="text" name="color" id="" class="width-663px pd-15 rounded-5 input-border" placeholder="Cattle Color">
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10   ">
+                                <input type="text" name="location" id="" class="width-663px pd-15 rounded-5 input-border"
+                                    placeholder="Location">
+                                <input type="text" name="Estimated Age" id="" class="width-663px pd-15 rounded-5 input-border" placeholder="Estimated Age">
+                            </div>
+                            <div class="form-group row  flex-wrap gap-10  ">
+                                <input type="text" name="initial-weight" id="" class="width-663px pd-15 rounded-5 input-border"
+                                    placeholder="Intial Weight" inputmode="tel">
+                                <input type="text" name="password" id="" class="width-663px pd-15 rounded-5 input-border" placeholder="Password" minlength="6" maxlength="16" >
+                            </div>
+                            <div class="form-group row flex-wrap gap-10">
+                                <select name="gender" id="" class="width-663px pd-15 rounded-5 input-border">
+                                    <option >select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <input type="file" name="image" class="width-663px pd-15 rounded-5 input-border">
+                            </div>
+                            <div class="form-group row gap-10 flex-wrap center">
+                                <button class="prim_btn_color-hover width-100 pd-15 rounded-5 input-border">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="/js/dashboard.js"></script>
+
+
+</body>
+
+</html>

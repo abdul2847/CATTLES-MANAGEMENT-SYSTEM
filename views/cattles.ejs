@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./layouts/headers') %>
+  </head>
+  <body>
+    <%- include('./layouts/topnav') %>
+    <div class="owner_container card shadow_dark width-100  pd-30 ">
+
+        <div class="headline width-100 row space-between pd-10">
+            <h2 class="letter-spc-2 h2 ">CATTLES</h2>
+        </div>
+        <br>
+        <div class="card_container row gap-20 flex-wrap pd-10">
+            <% if (cattles && cattles.length > 0) { %>
+                <% cattles.forEach((cattle) => { %>
+                    <div class="owner_card rounded-5 fle border_wrap col ">
+                        <a href="/manager/view/cattle/<%= cattle._id  %>">
+                            <div class="owner_img">
+                                <img src="/uploads/cattles/<%= cattle.images %>" alt="">
+                            </div>
+                            <div class="owner_descrip pd-10 gap-10 col">
+                                <p>Owner: <%= cattle.owner.name  %></p>
+                                <p>Location: <%= cattle.owner.location  %></p>
+                                <p>Color: <%= cattle.color  %></p>
+                                <p>Health Status: <%= cattle.healthStatus  %></p>
+                            </div>
+                        </a>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <h3>No Cattles found</h3>
+            <% } %>
+        </div>
+        <br>
+        <br>
+          
+        <div class="pargination center row gap-20">
+            <% if (currentPage > 1) { %>
+                <a href="/manager/cattles/?page=<%= currentPage - 1 %>" class="width-20 pd-10 prim_btn_color rounded-20">Previous</a>
+                <% } %>
+                <p><%= currentPage%></p>
+                <% if (currentPage < totalPages) { %>
+                <a href="/manager/cattles/?page=<%= currentPage + 1 %>"class="width-20 pd-10 prim_btn_color rounded-20" >Next</a>
+                <% } %>
+           
+            
+        </div>
+        
+
+    </div>
+    <%- include('./layouts/menuModal') %>
+    <section class="card">
+        <%- include('./layouts/footer') %>
+      </section>
+    <!-- Back to Top Button -->
+    <button id="back-to-top">&#8593;</button>
+    <script src="/js/home.js"></script>
+  </body>
+</html>
