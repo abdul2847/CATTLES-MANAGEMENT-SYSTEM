@@ -110,7 +110,6 @@ router.get("/manager/edit", isLoggedIn, isManager, async (req, res) => {
   }
 });
 
-
 router.get("/manager/managers/edit", isLoggedIn, isManager, async (req, res) => {
   const alertMessage = req.flash("alertMessage");
   const alertStatus = req.flash("alertStatus");
@@ -197,7 +196,7 @@ router.get("/manager/owners", isLoggedIn, isManager, async (req, res) => {
     res.status(500).send("Error fetching owners: " + error.message);
   }
 });
-router.get('/manager/update/owner/:ownerId', isLoggedIn, isManager, async(req, res)=>{
+router.get('/manager/update/owner/:ownerId', isLoggedIn, isAdmin,isManager, async(req, res)=>{
   const ownerId = req.params.ownerId
 
   const alertMessage = req.flash("alertMessage");
@@ -223,7 +222,7 @@ router.get('/manager/update/owner/:ownerId', isLoggedIn, isManager, async(req, r
   }
 })
 
-router.post('/manager/update/owner/:ownerId', isLoggedIn, isManager, userupload.single("image"),async(req, res)=>{
+router.post('/manager/update/owner/:ownerId', isLoggedIn, isAdmin,isManager, userupload.single("image"),async(req, res)=>{
     const ownerId = req.params.ownerId;
     const { name, location, email, phone, gender, house_Address,password } = req.body;
     try {
@@ -274,7 +273,7 @@ router.post('/manager/update/owner/:ownerId', isLoggedIn, isManager, userupload.
     }
 })
 
-router.get('/manager/delete/owner/:ownerId', isLoggedIn, isManager,  async (req, res) => {
+router.get('/manager/delete/owner/:ownerId', isLoggedIn, isAdmin,isManager,  async (req, res) => {
   try {
       const ownerId = req.params.ownerId;
 
@@ -474,7 +473,7 @@ router.get(
   }
 );
 
-router.get('/manager/update/manager/:managerId', async(req, res)=>{
+router.get('/manager/update/manager/:managerId', isAdmin,async(req, res)=>{
   const managerId = req.params.managerId
 
   const alertMessage = req.flash("alertMessage");
@@ -777,6 +776,7 @@ router.post('/manager/update/cattle/:cattleId',cattleupload.single("images"), is
     res.redirect(`/manager/update/cattle/${cattleId}`)
   }
 });
+
 router.get('/manager/view/cattle/:cattleId',  isLoggedIn, isManager, async(req, res)=>{
   const cattleId = req.params.cattleId; // Extract the userId from params
 
@@ -804,7 +804,7 @@ router.get('/manager/view/cattle/:cattleId',  isLoggedIn, isManager, async(req, 
   }
 
 });
-router.get('/manager/delete/cattle/:cattleId', async (req, res)=>{
+router.get('/manager/delete/cattle/:cattleId',isAdmin, async (req, res)=>{
   const cattleId = req.params.cattleId;
 
   try {
@@ -825,7 +825,6 @@ router.get('/manager/delete/cattle/:cattleId', async (req, res)=>{
     return res.redirect("/manager/cattle/edit");
   }
 })
-
 
 router.get("/manager/user/profile", isLoggedIn, isManager, async (req, res) => {
   try {

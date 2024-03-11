@@ -44,7 +44,7 @@
                         <tbody>
                             <% if (cattles && cattles.length> 0) { %>
                                 <% cattles.forEach((cattle, index) => { %>
-                                    <tr data-aos="zoom-out-right">
+                                    <tr>
                                         <td style="text-align: center;"><%= index  %></td>
                                         <td class="table_image " style="text-align: center;"><img src="/uploads/cattles/<%= cattle.images  %>" alt=""></td>
                                         <td style="text-align: center;"><%= cattle.owner.name  %></td>
