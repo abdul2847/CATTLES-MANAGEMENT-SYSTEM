@@ -47,6 +47,10 @@ const ManagerSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     image: {
         type: String,
         trim: true,

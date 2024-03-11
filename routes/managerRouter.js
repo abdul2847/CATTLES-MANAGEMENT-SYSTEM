@@ -8,7 +8,7 @@ const {
   generateCSVData,
   generateAndDownloadPDF
 } = require("../utils/general_utils");
-const { isLoggedIn, isManager, isOwner } = require("../auth/auth");
+const { isLoggedIn, isManager, isOwner ,isAdmin} = require("../auth/auth");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const Manager = require("../models/managerModels");
@@ -502,7 +502,7 @@ router.get('/manager/update/manager/:managerId', async(req, res)=>{
   }
 })
 // Update manager details by ID
-router.post("/manager/update/manager/:managerId", userupload.single("image"), async (req, res) => {
+router.post("/manager/update/manager/:managerId", isAdmin, userupload.single("image"), async (req, res) => {
   const managerId = req.params.managerId;
   const { name, location, email, phone, gender, password, house_Address } = req.body;
 
@@ -551,7 +551,7 @@ router.post("/manager/update/manager/:managerId", userupload.single("image"), as
 });
 
 // Delete manager by ID
-router.get("/manager/delete/manager/:managerId", async (req, res) => {
+router.get("/manager/delete/manager/:managerId", isAdmin,async (req, res) => {
   const managerId = req.params.managerId;
 
   try {
@@ -589,7 +589,7 @@ router.get("/manager/add_cattle", isLoggedIn, isManager, (req, res) => {
   }
 });
 
-router.get("/manager/cattle/edit", isLoggedIn, isManager, async (req, res) => {
+router.get("/manager/cattle/edit", isLoggedIn,  isManager, async (req, res) => {
   const alertMessage = req.flash("alertMessage");
   const alertStatus = req.flash("alertStatus");
 
@@ -697,7 +697,7 @@ router.post(
   }
 );
 
-router.get('/manager/update/cattle/:cattleId',  isLoggedIn, isManager, async(req, res)=>{
+router.get('/manager/update/cattle/:cattleId',  isLoggedIn,isAdmin, isManager, async(req, res)=>{
   const cattleId = req.params.cattleId; // Extract the userId from params
   const alertMessage = req.flash("alertMessage");
   const alertStatus = req.flash("alertStatus");
@@ -722,7 +722,7 @@ router.get('/manager/update/cattle/:cattleId',  isLoggedIn, isManager, async(req
 
 });
 
-router.post('/manager/update/cattle/:cattleId',cattleupload.single("images"), isLoggedIn, isManager, async (req, res) => {
+router.post('/manager/update/cattle/:cattleId',cattleupload.single("images"), isLoggedIn, isAdmin,isManager, async (req, res) => {
   const cattleId = req.params.cattleId;
   const {
     ownername,
