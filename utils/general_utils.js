@@ -51,10 +51,10 @@ module.exports.generateAndDownloadPDF = function generateAndDownloadPDF(data, re
       // Loop through the owners
       for (const owner of data) {
           // Add the owner's name, location, and contact information
-          doc.fontSize(16);
+          doc.fontSize(12);
           doc.font('Times-Roman')
           doc.text(`Owner Name: ${owner.name}`);
-          doc.fontSize(12);
+          doc.fontSize(11);
           doc.font('Times-Roman')
           doc.text(`Location: ${owner.location}`);
           doc.text(`Contact: ${owner.phone}`);
