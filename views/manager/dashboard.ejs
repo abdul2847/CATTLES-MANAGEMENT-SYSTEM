@@ -122,13 +122,16 @@
       };
 
       const config = {
+
           type: "bar",
           data: data,
           options: {
               scales: {
                   y: {
                       beginAtZero: true,
-
+                      ticks: {
+                    stepSize: 1, // Increase y-axis by 1
+                },
                   },
               },
               maintainAspectRatio: false, // Set to false to allow the chart to fill its container
