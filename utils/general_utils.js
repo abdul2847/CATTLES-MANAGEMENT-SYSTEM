@@ -68,11 +68,11 @@ module.exports.generateAndDownloadPDF = function generateAndDownloadPDF(data, re
           const table = {
               headers: ['Color', 'Gender', 'Date of Birth', 'Weight', 'Identification Number'," ", 'Health Status', 'Date Added'],
               FontFace: 'Times-Roman',
-              rows: owner.cattles.map(cattle => [cattle.color, cattle.gender, formatDate(cattle.dateOfBirth), cattle.weight, cattle.identificationNumber, cattle.healthStatus, formatMongoDBDate(cattle.createdAt)])
+              rows: owner.cattles.map(cattle => [cattle.color, cattle.gender, formatDate(cattle.dateOfBirth), cattle.weight, cattle.identificationNumber, ' ',cattle.healthStatus, formatMongoDBDate(cattle.createdAt)])
           };
           doc.table(table, {
-              prepareHeader: () => doc.font('Times-Bold').fontSize(11),
-              prepareRow: (row, i) => doc.font('Times-Roman').fontSize(11)
+              prepareHeader: () => doc.font('Times-Bold').fontSize(10).textAlign('center'),
+              prepareRow: (row, i) => doc.font('Times-Roman').fontSize(10)
           });
           doc.moveDown();
           
