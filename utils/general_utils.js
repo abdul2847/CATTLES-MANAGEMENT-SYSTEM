@@ -71,9 +71,9 @@ module.exports.generateAndDownloadPDF = function generateAndDownloadPDF(data, re
               rows: owner.cattles.map(cattle => [cattle.color, cattle.gender, formatDate(cattle.dateOfBirth), cattle.weight, cattle.identificationNumber,cattle.healthStatus, formatMongoDBDate(cattle.createdAt)])
           };
           doc.table(table, {
-            prepareHeader: () => doc.font('Times-Bold').fontSize(10).align('center'),
-            prepareRow: (row, i) => doc.font('Times-Roman').fontSize(10).align('left'),
-        });        
+              prepareHeader: () => doc.font('Times-Bold').fontSize(10).align('center'),
+              prepareRow: (row, i) => doc.font('Times-Roman').fontSize(10)
+          });
           doc.moveDown();
           
           if (doc.y > 700) {
