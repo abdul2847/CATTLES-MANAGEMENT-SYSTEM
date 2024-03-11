@@ -58,7 +58,7 @@ h4{
 }
 .main-wrapper {
   flex: 1;
-  margin-left: 80px;
+  /* margin-left: 80px; */
 }
 
 .container_wrapper {
@@ -1115,8 +1115,8 @@ table thead td{
     font-size:20px;
   }
   .main-wrapper {
-    width: 70%;
-    margin-left: 80px;
+    width: 100%;
+    /* margin-left: 80px; */
   }
   .logo_banner{
     display: none;

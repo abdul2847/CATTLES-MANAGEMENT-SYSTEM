@@ -7,7 +7,15 @@ for (var i = 0; i < arrow.length; i++) {
 }
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".menu");
-console.log(sidebarBtn);
-sidebarBtn.addEventListener("click", ()=>{
-  sidebar.classList.toggle("close");
-});
+
+if (window.innerWidth <= 768) {
+  sidebarBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+    console.log('done');
+    sidebar.classList.toggle("heights-container");
+  });
+} else {
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+}
