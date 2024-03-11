@@ -66,7 +66,7 @@ module.exports.generateAndDownloadPDF = function generateAndDownloadPDF(data, re
 
           // Add the table  
           const table = {
-              headers: ['Color', 'Gender',  'Weight', 'Identification Number'," ", 'Health Status', 'Date Added'],
+              headers: ['Color', 'Gender',  'Weight', 'Identification Number', 'Health Status', 'Date Added'],
               FontFace: 'Times-Roman',
               rows: owner.cattles.map(cattle => [cattle.color, cattle.gender, cattle.weight, cattle.identificationNumber,cattle.healthStatus, formatMongoDBDate(cattle.createdAt)])
           };
